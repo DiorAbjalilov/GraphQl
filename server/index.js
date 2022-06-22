@@ -8,12 +8,11 @@ const users = [
     id: 1,
     name: "John Doe",
     age: 30,
-    posts: [
-      { id: 1, title: "Post 1", content: "Content 1" },
-      { id: 2, title: "Post 2", content: "Content 2" },
-    ],
   },
 ];
+
+const app = express();
+app.use(cors());
 
 const createUser = (input) => {
   const id = Date.now();
@@ -22,10 +21,6 @@ const createUser = (input) => {
     ...input,
   };
 };
-
-const app = express();
-
-app.use(cors());
 
 const root = {
   getAllUsers: () => {
